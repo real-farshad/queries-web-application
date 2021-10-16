@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import express from "express";
 import { connectToDb } from "./config/mongodb";
 import routes from "./routes/index";
-import errorHandler from "./middlewares/error-handler";
+import errorHandler from "./middlewares/errorHandler";
 
 // use environment variables
 dotenv.config();
