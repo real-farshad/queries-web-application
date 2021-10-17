@@ -1,48 +1,44 @@
 import { ObjectId } from "mongodb";
-import { database } from "../config/mongodb";
+import { db } from "../config/mongodb";
 
-const findFirstSixFavorites = async () => {
-    const cursor = await database.collection("favorites").find().limit(10);
+const getFavoritesList = async () => {
+    const cursor = await db.collection("favorites").find().limit(6);
     const result = await cursor.toArray();
     return result;
 };
 
-const findSingleFavoriteById = async (id: string) => {
-    const result = await database
-        .collection("favorites")
-        .findOne({ _id: new ObjectId(id) });
+const findFavoriteById = async (id: string) => {
+    const result = await db.collection("favorites").findOne({ _id: new ObjectId(id) });
 
     return result;
 };
 
-const addNewFavorite = async (value: any) => {
-    const { insertedId } = await database
-        .collection("favorites")
-        .insertOne(value);
+const createFavorite = async (value: object) => {
+    const { insertedId } = await db.collection("favorites").insertOne(value);
     return insertedId;
 };
 
-const updateSingleFavorite = async (id: string, value: any) => {
-    const { matchedCount, modifiedCount } = await database
+const updateFavoriteById = async (id: string, value: object) => {
+    const { matchedCount, modifiedCount } = await db
         .collection("favorites")
         .updateOne({ _id: new ObjectId(id) }, { $set: value });
 
     return [matchedCount, modifiedCount];
 };
 
-const deleteSingleFavorite = async (id: string) => {
-    const { deletedCount } = await database
+const deleteFavoriteById = async (id: string) => {
+    const { deletedCount } = await db
         .collection("favorites")
         .deleteOne({ _id: new ObjectId(id) });
     return deletedCount;
 };
 
-const db = {
-    findFirstSixFavorites,
-    findSingleFavoriteById,
-    addNewFavorite,
-    updateSingleFavorite,
-    deleteSingleFavorite,
+const database = {
+    getFavoritesList,
+    findFavoriteById,
+    createFavorite,
+    updateFavoriteById,
+    deleteFavoriteById,
 };
 
-export default db;
+export default database;

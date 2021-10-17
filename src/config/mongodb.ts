@@ -1,6 +1,6 @@
 import { MongoClient, Db } from "mongodb";
 
-let database: Db;
+let db: Db;
 
 // type definition
 type connectToDbType = (uri: string, dbName: string) => void;
@@ -10,10 +10,10 @@ const connectToDb: connectToDbType = async (uri, dbName) => {
 
     try {
         await client.connect();
-        database = client.db(dbName);
+        db = client.db(dbName);
     } catch (err) {
         throw new Error("unable to connect to mongodb!");
     }
 };
 
-export { connectToDb, database };
+export { connectToDb, db };
