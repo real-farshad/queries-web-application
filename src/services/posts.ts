@@ -8,9 +8,7 @@ const getPostsList = async () => {
 };
 
 const findPostById = async (id: string) => {
-    const result = await db
-        .collection("posts")
-        .findOne({ _id: new ObjectId(id) });
+    const result = await db.collection("posts").findOne({ _id: new ObjectId(id) });
 
     return result;
 };
