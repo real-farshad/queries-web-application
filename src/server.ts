@@ -21,7 +21,12 @@ app.use(errorHandler);
 // connect to mongodb
 const uri = process.env.MONGODB_URI as string;
 const dbName = process.env.DB_NAME as string;
-connectToDb(uri, dbName);
+
+try {
+    connectToDb(uri, dbName);
+} catch (err) {
+    throw new Error("unable to connect to mongodb!");
+}
 
 // listen for requests
 const port = (process.env.PORT as string) || "3000";

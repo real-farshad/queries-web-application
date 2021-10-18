@@ -13,9 +13,14 @@ const findFavoriteById = async (id: string) => {
     return result;
 };
 
-const createFavorite = async (value: object) => {
+const addFavorite = async (value: object) => {
     const { insertedId } = await db.collection("favorites").insertOne(value);
     return insertedId;
+};
+
+const addManyFavorites = async (values: object[]) => {
+    const { insertedCount } = await db.collection("favorites").insertMany(values);
+    return insertedCount;
 };
 
 const updateFavoriteById = async (id: string, value: object) => {
@@ -36,7 +41,8 @@ const deleteFavoriteById = async (id: string) => {
 const database = {
     getFavoritesList,
     findFavoriteById,
-    createFavorite,
+    addFavorite,
+    addManyFavorites,
     updateFavoriteById,
     deleteFavoriteById,
 };

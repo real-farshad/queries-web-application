@@ -50,7 +50,7 @@ async function createFavoriteHandler({ database, req, res, next }: handlerTypes)
     }
 
     try {
-        const insertedId = await database.createFavorite(value);
+        const insertedId = await database.addFavorite(value);
         return res.json({ id: insertedId });
     } catch (err) {
         next(err);

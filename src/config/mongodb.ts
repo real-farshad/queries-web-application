@@ -1,19 +1,20 @@
 import { MongoClient, Db } from "mongodb";
 
+let client: MongoClient;
 let db: Db;
 
-// type definition
-type connectToDbType = (uri: string, dbName: string) => void;
+const connectToDb = async (uri: string, dbName: string): Promise<void> => {
+    client = new MongoClient(uri);
+    await client.connect();
+    db = client.db(dbName);
 
-const connectToDb: connectToDbType = async (uri, dbName) => {
-    const client = new MongoClient(uri);
-
-    try {
-        await client.connect();
-        db = client.db(dbName);
-    } catch (err) {
-        throw new Error("unable to connect to mongodb!");
-    }
+    console.log("Connected to mongodb...");
 };
 
-export { connectToDb, db };
+const disconnectFromDb = async (): Promise<void> => {
+    await client.close();
+
+    console.log("Disconnected from mongodb...");
+};
+
+export { db, connectToDb, disconnectFromDb };

@@ -13,9 +13,14 @@ const findPostById = async (id: string) => {
     return result;
 };
 
-const createPost = async (value: object) => {
+const addPost = async (value: object) => {
     const { insertedId } = await db.collection("posts").insertOne(value);
     return insertedId;
+};
+
+const addManyPosts = async (values: object[]) => {
+    const { insertedCount } = await db.collection("posts").insertMany(values);
+    return insertedCount;
 };
 
 const updatePostById = async (id: string, value: object) => {
@@ -36,7 +41,8 @@ const deletePostById = async (id: string) => {
 const database = {
     getPostsList,
     findPostById,
-    createPost,
+    addPost,
+    addManyPosts,
     updatePostById,
     deletePostById,
 };

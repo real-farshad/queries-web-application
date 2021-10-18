@@ -50,7 +50,7 @@ async function createPostHandler({ database, req, res, next }: handlerTypes) {
     }
 
     try {
-        const insertedId = await database.createPost(value);
+        const insertedId = await database.addPost(value);
         return res.json({ id: insertedId });
     } catch (err) {
         next(err);
