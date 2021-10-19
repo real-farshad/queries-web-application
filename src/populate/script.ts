@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { connectToDb, disconnectFromDb } from "../config/mongodb";
+import { connectToDb, disconnectFromDb, clearCollections } from "../config/mongodb";
 import favoritesSchema from "../schemas/favorites";
 import postsSchema from "../schemas/posts";
 import favoritesDb from "../services/favorites";
@@ -36,6 +36,9 @@ const populateDb = async (): Promise<void> => {
         // connect to the db
         await connectToDb(uri, dbName);
 
+        // delete all previous documents in db
+        await clearCollections();
+
         // add favorites to the db
         const insertedFavoritesCount = await favoritesDb.addManyFavorites(validFavorites);
         console.log(
@@ -50,8 +53,10 @@ const populateDb = async (): Promise<void> => {
         await disconnectFromDb();
 
         console.log("database populated successfully.");
+        process.exit(0);
     } catch (err) {
-        throw new Error("unable to populate mongodb!");
+        console.log("unable to populate mongodb!", err);
+        process.exit(1);
     }
 };
 

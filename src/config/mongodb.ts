@@ -17,4 +17,19 @@ const disconnectFromDb = async (): Promise<void> => {
     console.log("Disconnected from mongodb...");
 };
 
-export { db, connectToDb, disconnectFromDb };
+const clearCollections = async (): Promise<void> => {
+    // get a list of all collection in the database
+    const result = await db.command({
+        listCollections: 1.0,
+        authorizedCollections: true,
+        nameOnly: true,
+    });
+
+    // loop through every collection and remove all documents in it
+    const collections = result.cursor.firstBatch;
+    for (const collection of collections) {
+        await db.collection(collection.name).deleteMany({});
+    }
+};
+
+export { db, connectToDb, disconnectFromDb, clearCollections };
