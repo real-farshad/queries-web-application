@@ -1,3 +1,4 @@
+import path from "path";
 import dotenv from "dotenv";
 import express from "express";
 import { connectToDb } from "./config/mongodb";
@@ -11,6 +12,9 @@ const app = express();
 
 // parse incoming request bodies
 app.use(express.json());
+
+// Serve static files
+app.use(express.static(path.resolve(__dirname, "../public")));
 
 // routes
 app.use("/api", routes);
