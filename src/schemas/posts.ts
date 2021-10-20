@@ -1,6 +1,6 @@
 import Joi from "joi";
 
-const schema = Joi.object({
+const postSchema = Joi.object({
     image_url: Joi.string().min(3).max(256).required(),
     title: Joi.string().min(3).max(64).required(),
     description: Joi.string().min(3).max(64).required(),
@@ -8,4 +8,12 @@ const schema = Joi.object({
     views: Joi.number().min(0).required(),
 });
 
-export default schema;
+const postQuerySchema = Joi.object({
+    search: Joi.string().min(3).max(96).allow(""),
+    sort: Joi.string().valid("publish_date", "views"),
+    page: Joi.number().min(0),
+    limit: Joi.number().valid(4),
+});
+
+export default postSchema;
+export { postQuerySchema };

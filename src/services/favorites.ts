@@ -18,11 +18,6 @@ const addFavorite = async (value: object) => {
     return insertedId;
 };
 
-const addManyFavorites = async (values: object[]) => {
-    const { insertedCount } = await db.collection("favorites").insertMany(values);
-    return insertedCount;
-};
-
 const updateFavoriteById = async (id: string, value: object) => {
     const { matchedCount, modifiedCount } = await db
         .collection("favorites")
@@ -38,13 +33,20 @@ const deleteFavoriteById = async (id: string) => {
     return deletedCount;
 };
 
+// FOR POPULATE SCRIPT - START
+const addManyFavorites = async (values: object[]) => {
+    const { insertedCount } = await db.collection("favorites").insertMany(values);
+    return insertedCount;
+};
+// FOR POPULATE SCRIPT - END
+
 const database = {
     getFavoritesList,
     findFavoriteById,
     addFavorite,
-    addManyFavorites,
     updateFavoriteById,
     deleteFavoriteById,
+    addManyFavorites,
 };
 
 export default database;

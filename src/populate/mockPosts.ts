@@ -2,7 +2,7 @@ const posts: object[] = [
     // First Set
     {
         image_url: "posts-first.jpg",
-        title: "Rise Of A Warriors",
+        title: "Rise Of A Warrior",
         description: "Sed Commodo Aliquet",
         publish_date: "10-25-2021",
         views: 118,
@@ -32,7 +32,7 @@ const posts: object[] = [
     // Second set
     {
         image_url: "posts-first.jpg",
-        title: "Rise Of A Warriors",
+        title: "Rise Of A Warrior",
         description: "Sed Commodo Aliquet",
         publish_date: "10-25-2021",
         views: 118,
@@ -62,7 +62,7 @@ const posts: object[] = [
     // Third set
     {
         image_url: "posts-first.jpg",
-        title: "Rise Of A Warriors",
+        title: "Rise Of A Warrior",
         description: "Sed Commodo Aliquet",
         publish_date: "10-25-2021",
         views: 118,

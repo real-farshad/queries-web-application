@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import { connectToDb, disconnectFromDb, clearCollections } from "../config/mongodb";
-import favoritesSchema from "../schemas/favorites";
-import postsSchema from "../schemas/posts";
+import favoriteSchema from "../schemas/favorites";
+import postSchema from "../schemas/posts";
 import favoritesDb from "../services/favorites";
 import postsDb from "../services/posts";
 
@@ -18,7 +18,7 @@ const populateDb = async (): Promise<void> => {
 
     // validate favorites array
     for (const favorite of favorites) {
-        const validation = favoritesSchema.validate(favorite);
+        const validation = favoriteSchema.validate(favorite);
         if (validation.error) return console.log("invalid favorite!");
         validFavorites.push(validation.value);
     }
@@ -27,7 +27,7 @@ const populateDb = async (): Promise<void> => {
 
     // validate posts array
     for (const post of posts) {
-        const validation = postsSchema.validate(post);
+        const validation = postSchema.validate(post);
         if (validation.error) return console.log("invalid post!");
         validPosts.push(validation.value);
     }
@@ -48,6 +48,9 @@ const populateDb = async (): Promise<void> => {
         // add posts to the db
         const insertedPostsCount = await postsDb.addManyPosts(validPosts);
         console.log(`${insertedPostsCount} documents were inserted to posts collection.`);
+
+        // create text index for post.title and post.description
+        await postsDb.createTitleAndDescriptionTextIndex();
 
         // disconnect from the db
         await disconnectFromDb();

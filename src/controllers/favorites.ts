@@ -1,6 +1,6 @@
 import { handlerTypes, controllerTypes } from "../utils/controllerTypes";
 import database from "../services/favorites";
-import schema from "../schemas/favorites";
+import favoriteSchema from "../schemas/favorites";
 
 // GET /
 const getFavoritesList: controllerTypes = (req, res, next) => {
@@ -44,9 +44,9 @@ const createFavorite: controllerTypes = (req, res, next) => {
 async function createFavoriteHandler({ database, req, res, next }: handlerTypes) {
     let value;
     try {
-        value = await schema.validateAsync(req.body);
+        value = await favoriteSchema.validateAsync(req.body);
     } catch (err: any) {
-        return res.json({ error: err.message });
+        return res.status(403).json({ error: err.message });
     }
 
     try {
@@ -65,9 +65,9 @@ const updateFavoriteById: controllerTypes = (req, res, next) => {
 async function updateFavoriteByIdHandler({ database, req, res, next }: handlerTypes) {
     let value;
     try {
-        value = await schema.validateAsync(req.body);
+        value = await favoriteSchema.validateAsync(req.body);
     } catch (err: any) {
-        return res.json({ error: err.message });
+        return res.status(403).json({ error: err.message });
     }
 
     try {
