@@ -1,8 +1,11 @@
-import React from "react";
-import { Counter } from "./features/counter/Counter";
+import { Fragment } from "react";
 
 function App() {
-    return <div></div>;
+    return (
+        <Fragment>
+            <div></div>
+        </Fragment>
+    );
 }
 
 export default App;
