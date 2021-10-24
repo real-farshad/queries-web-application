@@ -1,0 +1,19 @@
+@import "breakpoints";
+
+.menu-icon__line {
+    height: 2.4px;
+    background-color: var(--black);
+    margin-bottom: 3px;
+}
+
+.menu-icon__line--top {
+    width: 20px;
+}
+
+.menu-icon__line--middle {
+    width: 30px;
+}
+
+.menu-icon__line--bottom {
+    width: 20px;
+}

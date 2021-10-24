@@ -1,0 +1,22 @@
+.close-icon {
+    padding-top: 5px;
+}
+
+.close-icon__line {
+    width: 9px;
+    height: 2.4px;
+    background-color: var(--black);
+}
+
+.close-icon__line--top,
+.close-icon__line--bottom {
+    transform-origin: left;
+}
+
+.close-icon__line--top {
+    transform: rotate(-45deg);
+}
+
+.close-icon__line--bottom {
+    transform: translateY(-3px) rotate(45deg);
+}

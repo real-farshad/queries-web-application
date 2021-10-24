@@ -1,9 +1,11 @@
 import { Fragment } from "react";
+import Header from "./components/Header";
+import "./styles/App.scss";
 
 function App() {
     return (
         <Fragment>
-            <div></div>
+            <Header />
         </Fragment>
     );
 }

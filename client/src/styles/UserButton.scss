@@ -1,0 +1,29 @@
+@import "breakpoints";
+
+.user-button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.user-button__text {
+    font-weight: var(--medium-font-weight);
+    margin-right: 15px;
+
+    @include min-width-xl {
+        margin-right: 17px;
+    }
+}
+
+.user-button__avatar {
+    --avatar-size: 42px;
+
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    border: 2px solid var(--white);
+    border-radius: 100%;
+
+    @include min-width-xl {
+        --avatar-size: 50px;
+    }
+}
