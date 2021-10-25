@@ -9,15 +9,18 @@
     --regular-font-weight: 400;
     --medium-font-weight: 500;
     --bold-font-weight: 700;
+    --extra-bold-font-weight: 800;
+    --black-font-weight: 900;
 
     /* Colors */
     --black: rgb(0, 0, 0);
     --white: rgb(255, 255, 255);
+    --dark-grey: rgb(25, 25, 25);
     --background-color: rgb(242, 242, 242);
     --primary-accent-color: rgb(255, 174, 41);
 
     /* Text color */
-    --primary-text-color: var(--black);
+    --primary-text-color: var(--dark-grey);
 
     /* Widths */
     --max-content-width-xl: 1366px;

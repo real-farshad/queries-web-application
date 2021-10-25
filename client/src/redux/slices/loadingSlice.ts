@@ -4,7 +4,7 @@ import { RootState } from "../store";
 const loadingSlice = createSlice({
     name: "loading",
     initialState: {
-        pageLoading: false,
+        pageLoading: true,
         postsLoading: false,
     },
     reducers: {

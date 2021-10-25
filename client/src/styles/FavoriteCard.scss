@@ -1,0 +1,41 @@
+.favorite-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.favorite-card__container {
+    position: relative;
+    margin-bottom: 22px;
+}
+
+.favorite-card__image {
+    height: 365px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.11);
+}
+
+.favorite-card__count {
+    position: absolute;
+    bottom: 0;
+    right: 13px;
+    transform: translateY(50%);
+
+    span {
+        font-size: 36px;
+        font-weight: var(--extra-bold-font-weight);
+        text-shadow: -1.4px -1.4px 0 var(--background-color),
+            1.4px -1.4px 0 var(--background-color), -1.4px 1.4px 0 var(--background-color),
+            1.4px 1.4px 0 var(--background-color);
+        letter-spacing: 2px;
+    }
+}
+
+.favorite-card__title {
+    font-size: 18px;
+    font-weight: var(--bold-font-weight);
+    margin-bottom: 5px;
+}
+
+.favorite-card__description {
+    font-weight: var(--medium-font-weight);
+    opacity: 0.5;
+}

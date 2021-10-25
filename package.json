@@ -7,7 +7,7 @@
         "server-dev": "ts-node-dev --respawn --transpile-only src/server.ts",
         "client-dev": "cd client && npm run start",
         "dev": "concurrently \"npm run server-dev\" \"npm run client-dev\"",
-        "populate": "node ./dist/populate/script.js"
+        "populate": "ts-node ./src/populate/script.ts"
     },
     "keywords": [],
     "author": "",

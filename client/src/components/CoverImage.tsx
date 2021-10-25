@@ -1,15 +1,15 @@
 import "../styles/CoverImage.scss";
 
 interface CoverImage {
-    imageUrl: string;
+    src: string;
 }
 
-function CoverImage({ imageUrl }: CoverImage) {
+function CoverImage({ src }: CoverImage) {
     return (
         <div
             className="cover-image"
             style={{
-                backgroundImage: `url(${imageUrl})`,
+                backgroundImage: `url(${src})`,
             }}
         />
     );

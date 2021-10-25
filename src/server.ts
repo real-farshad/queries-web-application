@@ -33,7 +33,7 @@ try {
 }
 
 // listen for requests
-const port = (process.env.PORT as string) || "3000";
+const port = (process.env.PORT as string) || "5000";
 app.listen(port, () => {
     const env = process.env.NODE_ENV as string;
     return console.log(`[${env.toUpperCase()}] - listening on port ${port}...`);

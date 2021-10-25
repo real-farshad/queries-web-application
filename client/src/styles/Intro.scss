@@ -1,1 +1,36 @@
 @import "breakpoints";
+
+.intro__favorites-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.intro__favorites {
+    width: fit-content;
+    display: flex;
+    padding-right: var(--content-space);
+    padding-left: var(--content-space);
+}
+
+.intro__favorite-card {
+    width: 67vw;
+    margin-bottom: 40px;
+    margin-right: 10vw;
+}
+
+.intro__controlls {
+    font-weight: var(--bold-font-weight);
+    display: flex;
+    justify-content: space-between;
+    padding-right: var(--content-space);
+    padding-left: var(--content-space);
+}
+
+.intro__prev-btn,
+.intro__next-btn {
+    opacity: 0.3;
+
+    &--active {
+        opacity: 1;
+    }
+}

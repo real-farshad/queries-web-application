@@ -5,7 +5,9 @@ import "../styles/Header.scss";
 
 function Header() {
     return (
-        <header>
+        <header className="header">
+            {/* <div className="header__background-light" /> */}
+
             <ContentContainer>
                 <Navbar />
             </ContentContainer>

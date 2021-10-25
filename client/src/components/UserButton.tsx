@@ -1,13 +1,13 @@
 import "../styles/UserButton.scss";
 
-interface UserButton {
+interface UserButtonTypes {
     user: {
         name: string;
         avatar: string;
     };
 }
 
-function UserButton({ user }: UserButton) {
+function UserButton({ user }: UserButtonTypes) {
     return (
         <div className="user-button">
             <p className="user-button__text">{user.name}</p>

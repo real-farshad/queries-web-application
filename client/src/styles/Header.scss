@@ -1,1 +1,21 @@
 @import "breakpoints";
+
+.header {
+    position: relative;
+    overflow: hidden;
+}
+
+.header__background-light {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 800px;
+    height: 640px;
+    background: white;
+    background: radial-gradient(
+        var(--white),
+        var(--background-color) 60%,
+        var(--background-color)
+    );
+    opacity: 0.5;
+}

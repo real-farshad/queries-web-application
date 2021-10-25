@@ -1,0 +1,44 @@
+@import "breakpoints";
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+
+    &--reverse {
+        flex-direction: row-reverse;
+    }
+}
+
+.control-btn__arrow {
+    padding-top: 7px;
+
+    &--reverse {
+        transform: rotate(180deg);
+    }
+}
+
+.control-btn__arrow-line {
+    width: 9px;
+    height: 3.4px;
+    background-color: var(--black);
+}
+
+.control-btn__arrow-line--top,
+.control-btn__arrow-line--bottom {
+    transform-origin: left;
+}
+
+.control-btn__arrow-line--top {
+    transform: rotate(-45deg);
+}
+
+.control-btn__arrow-line--bottom {
+    transform: translateY(-5px) rotate(45deg);
+}
+
+.control-btn__text {
+    font-size: 18px;
+    font-weight: var(--bold-font-weight);
+}

@@ -1,18 +1,21 @@
 @import "breakpoints";
 
 .navbar {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: var(--content-space);
+    padding-top: var(--content-space);
+    padding-bottom: 35px;
+    z-index: 999;
 
     @include min-width-md {
-        margin-top: 30px;
+        padding-top: 30px;
     }
 
     @include min-width-xl {
-        margin-top: 50px;
-        margin-bottom: 50px;
+        padding-top: 50px;
+        padding-bottom: 50px;
     }
 }
 
