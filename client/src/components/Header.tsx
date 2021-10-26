@@ -10,9 +10,9 @@ function Header() {
 
             <ContentContainer>
                 <Navbar />
-            </ContentContainer>
 
-            <Intro />
+                <Intro />
+            </ContentContainer>
         </header>
     );
 }

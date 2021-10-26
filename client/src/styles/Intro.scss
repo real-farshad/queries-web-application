@@ -1,34 +1,130 @@
 @import "breakpoints";
 
 .intro__favorites-container {
-    width: 100%;
-    overflow: hidden;
+    margin-bottom: 120px;
 }
 
 .intro__favorites {
-    width: fit-content;
-    display: flex;
-    padding-right: var(--content-space);
-    padding-left: var(--content-space);
+    position: relative;
+    width: 100%;
+    height: 410px;
+    transition: 0.6s;
+
+    @include min-width-md {
+        height: 350px;
+    }
+
+    @include min-width-xl {
+        height: 400px;
+    }
 }
 
 .intro__favorite-card {
-    width: 67vw;
-    margin-bottom: 40px;
-    margin-right: 10vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 85%;
+    height: 100%;
+}
+
+.intro__favorite-card:nth-child(odd) {
+    @include min-width-md {
+        width: 30%;
+    }
+
+    @include min-width-xl {
+        width: 26%;
+    }
+}
+
+.intro__favorite-card:nth-child(even) {
+    @include min-width-md {
+        width: 66%;
+    }
+
+    @include min-width-xl {
+        width: 71.5%;
+    }
+}
+
+.intro__favorite-card:nth-child(1) {
+    left: 0;
+}
+
+.intro__favorite-card:nth-child(2) {
+    left: 93%;
+
+    @include min-width-md {
+        left: 34%;
+    }
+
+    @include min-width-xl {
+        left: 28.5%;
+    }
+}
+
+.intro__favorite-card:nth-child(3) {
+    left: 186%;
+
+    @include min-width-md {
+        left: 104%;
+    }
+
+    @include min-width-xl {
+        left: 102.5%;
+    }
+}
+
+.intro__favorite-card:nth-child(4) {
+    left: 279%;
+
+    @include min-width-md {
+        left: 138%;
+    }
+
+    @include min-width-xl {
+        left: 131%;
+    }
+}
+
+.intro__favorite-card:nth-child(5) {
+    left: 372%;
+
+    @include min-width-md {
+        left: 208%;
+    }
+
+    @include min-width-xl {
+        left: 205%;
+    }
+}
+
+.intro__favorite-card:nth-child(6) {
+    left: 465%;
+
+    @include min-width-md {
+        left: 356%;
+    }
+
+    @include min-width-xl {
+        left: 233.5%;
+    }
 }
 
 .intro__controlls {
-    font-weight: var(--bold-font-weight);
-    display: flex;
-    justify-content: space-between;
-    padding-right: var(--content-space);
-    padding-left: var(--content-space);
+    display: none;
+
+    @include min-width-md {
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 .intro__prev-btn,
 .intro__next-btn {
     opacity: 0.3;
+    transition: 0.3s;
+    user-select: none;
 
     &--active {
         opacity: 1;

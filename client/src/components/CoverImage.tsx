@@ -1,10 +1,10 @@
 import "../styles/CoverImage.scss";
 
-interface CoverImage {
+interface CoverImageTypes {
     src: string;
 }
 
-function CoverImage({ src }: CoverImage) {
+function CoverImage({ src }: CoverImageTypes) {
     return (
         <div
             className="cover-image"

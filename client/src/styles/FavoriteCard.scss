@@ -1,15 +1,17 @@
+@import "breakpoints";
+
 .favorite-card {
-    display: flex;
-    flex-direction: column;
+    height: 100%;
 }
 
 .favorite-card__container {
+    height: 100%;
     position: relative;
     margin-bottom: 22px;
 }
 
 .favorite-card__image {
-    height: 365px;
+    height: 100%;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.11);
 }
 
@@ -29,13 +31,27 @@
     }
 }
 
+.favorite-card__info {
+    max-width: 80%;
+}
+
 .favorite-card__title {
     font-size: 18px;
     font-weight: var(--bold-font-weight);
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+
+    @include min-width-xl {
+        font-size: 20px;
+        margin-bottom: 6px;
+    }
 }
 
 .favorite-card__description {
+    font-size: 14px;
     font-weight: var(--medium-font-weight);
     opacity: 0.5;
+
+    @include min-width-xl {
+        font-size: 16px;
+    }
 }

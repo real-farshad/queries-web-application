@@ -1,7 +1,7 @@
 import CoverImage from "./CoverImage";
 import "../styles/FavoriteCard.scss";
 
-interface FavoriteCard {
+interface FavoriteCardTypes {
     data: {
         image_url: string;
         title: string;
@@ -10,9 +10,7 @@ interface FavoriteCard {
     count: number;
 }
 
-function FavoriteCard({ data, count }: FavoriteCard) {
-    console.log(data);
-
+function FavoriteCard({ data, count }: FavoriteCardTypes) {
     return (
         <div className="favorite-card">
             <div className="favorite-card__container">
