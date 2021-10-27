@@ -15,7 +15,7 @@
     padding-top: 7px;
 
     &--reverse {
-        transform: rotate(180deg);
+        transform: scaleX(-1);
     }
 }
 
@@ -41,4 +41,8 @@
 .control-btn__text {
     font-size: 18px;
     font-weight: var(--bold-font-weight);
+
+    @include min-width-xl {
+        font-size: 20px;
+    }
 }

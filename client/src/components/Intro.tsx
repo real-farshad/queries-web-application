@@ -10,19 +10,22 @@ function Intro() {
     const favorites: any = useSelector(selectFavorites);
 
     const favoritesRef: any = useRef(null);
-
     const [slideIndex, setSlideIndex] = useState(0);
-
-    const initialSlideCount = window.innerWidth > 768 ? 6 : 3;
-    const [slideCount, setSlideCount] = useState(initialSlideCount);
-
     const [touchStartPosition, setTouchStartPosition] = useState(0);
+
+    // windowWidth can be sm, md or xl
+    const [windowWidth, setWindowWidth] = useState(getWindowWidth());
 
     useEffect(() => {
         if (!favoritesRef) return;
+        const cardsLeftPosition = calculateCardsLeftPosition();
+        favoritesRef.current.style.transform = `translateX(-${cardsLeftPosition}%)`;
+    }, [slideIndex, windowWidth]);
 
-        favoritesRef.current.style.transform = `translateX(-${(slideIndex / 2) * 100}%)`;
-    }, [slideIndex, slideCount]);
+    useEffect(() => {
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, [slideIndex, windowWidth]);
 
     function handleClickOnPrev() {
         if (slideIndex === 0) return;
@@ -30,7 +33,7 @@ function Intro() {
     }
 
     function handleClickOnNext() {
-        if (slideIndex * 2 > slideCount) return;
+        if (slideIndex + 2 > 5) return;
         setSlideIndex((prevState) => prevState + 2);
     }
 
@@ -39,11 +42,55 @@ function Intro() {
     }
 
     function handleTouchEnd(e: any) {
+        // swipe only works for small screens
+        if (windowWidth !== "sm") return;
+
         const positionDifference = touchStartPosition - e.changedTouches[0].clientX;
-        if (positionDifference <= -40 && slideIndex !== 0) {
+        const minDifferenceForTouch = 40;
+
+        if (positionDifference <= -minDifferenceForTouch && slideIndex !== 0) {
             setSlideIndex((prevState) => prevState - 1);
-        } else if (positionDifference >= 40 && slideIndex <= slideCount) {
+        } else if (positionDifference >= minDifferenceForTouch && slideIndex < 5) {
             setSlideIndex((prevState) => prevState + 1);
+        }
+    }
+
+    function getWindowWidth() {
+        const windowWidth = window.innerWidth;
+        if (windowWidth < 768) return "sm";
+        if (windowWidth < 1200) return "md";
+        return "xl";
+    }
+
+    function calculateCardsLeftPosition() {
+        const smCardsPosition = [0, 93, 186, 279, 372, 465];
+        if (windowWidth === "sm") return smCardsPosition[slideIndex];
+
+        const mdCardsPosition = [0, 104, 208];
+        if (windowWidth === "md") return mdCardsPosition[slideIndex / 2];
+
+        const xlCardsPosition = [0, 102.5, 205];
+        return xlCardsPosition[slideIndex / 2];
+    }
+
+    function handleResize() {
+        const newWindowWidth = getWindowWidth();
+
+        if (windowWidth !== newWindowWidth) {
+            let newSlideIndex;
+
+            const sliderLayoutIsStillSame =
+                (windowWidth === "xl" && newWindowWidth === "md") ||
+                (windowWidth === "md" && newWindowWidth === "xl");
+
+            if (newWindowWidth === "sm" || sliderLayoutIsStillSame) {
+                newSlideIndex = slideIndex;
+            } else {
+                newSlideIndex = slideIndex % 2 === 0 ? slideIndex : slideIndex - 1;
+            }
+
+            setWindowWidth(newWindowWidth);
+            setSlideIndex(newSlideIndex);
         }
     }
 
@@ -80,7 +127,7 @@ function Intro() {
                 </div>
                 <div
                     className={`intro__next-btn ${
-                        !(slideIndex * 2 > slideCount) ? " intro__next-btn--active" : ""
+                        !(slideIndex + 2 >= 6) ? " intro__next-btn--active" : ""
                     }`}
                     onClick={handleClickOnNext}
                 >
