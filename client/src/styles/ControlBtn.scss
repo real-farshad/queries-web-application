@@ -3,8 +3,11 @@
 .control-btn {
     display: flex;
     align-items: center;
-    gap: 10px;
-    cursor: pointer;
+    gap: 7px;
+
+    &--large {
+        gap: 10px;
+    }
 
     &--reverse {
         flex-direction: row-reverse;
@@ -12,7 +15,11 @@
 }
 
 .control-btn__arrow {
-    padding-top: 7px;
+    padding-top: 3px;
+
+    &--large {
+        padding-top: 7px;
+    }
 
     &--reverse {
         transform: scaleX(-1);
@@ -20,9 +27,14 @@
 }
 
 .control-btn__arrow-line {
-    width: 9px;
-    height: 3.4px;
-    background-color: var(--black);
+    width: 7px;
+    height: 1.9px;
+    background-color: var(--dark-grey);
+
+    &--large {
+        width: 9px;
+        height: 3.4px;
+    }
 }
 
 .control-btn__arrow-line--top,
@@ -35,14 +47,23 @@
 }
 
 .control-btn__arrow-line--bottom {
+    transform: translateY(-3px) rotate(45deg);
+}
+
+.control-btn__arrow--large .control-btn__arrow-line--bottom {
     transform: translateY(-5px) rotate(45deg);
 }
 
 .control-btn__text {
-    font-size: 18px;
-    font-weight: var(--bold-font-weight);
+    font-size: 16px;
+    font-weight: var(--medium-font-weight);
 
-    @include min-width-xl {
-        font-size: 20px;
+    &--large {
+        font-size: 18px;
+        font-weight: var(--bold-font-weight);
+
+        @include min-width-xl {
+            font-size: 20px;
+        }
     }
 }

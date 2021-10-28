@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { selectFavorites } from "../redux/slices/favoritesSlice";
 import FavoriteCard from "./FavoriteCard";
-import "../styles/Intro.scss";
 import ControlBtn from "./ControlBtn";
+import "../styles/Intro.scss";
 
 function Intro() {
     // Mock Data

@@ -1,0 +1,44 @@
+@import "breakpoints";
+
+.posts {
+    margin-bottom: 100px;
+}
+
+.posts__controls {
+    margin-bottom: 40px;
+}
+
+.posts__primary-controls-container {
+    margin-bottom: 25px;
+}
+
+.posts__search-form {
+    margin-bottom: 25px;
+}
+
+.posts__sort-controls {
+    font-weight: var(--medium-font-weight);
+    display: flex;
+    gap: 20px;
+}
+
+.posts__page-controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+.posts__loading-animation {
+    order: 2;
+}
+
+.posts__prev-btn {
+    order: 1;
+}
+
+.posts__next-btn {
+    order: 3;
+}
+
+.posts__card {
+    margin-bottom: 50px;
+}

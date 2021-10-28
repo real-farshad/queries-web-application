@@ -1,0 +1,37 @@
+@import "breakpoints";
+
+.post-card__container {
+    position: relative;
+    height: 500px;
+    margin-bottom: 25px;
+}
+
+.post-card__image {
+    position: relative;
+    height: 100%;
+}
+
+.post-card__shadow {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 90%;
+    filter: blur(15px);
+}
+
+.post-card__info {
+    text-align: center;
+}
+
+.post-card__title {
+    font-weight: var(--bold-font-weight);
+    margin-bottom: 5px;
+}
+
+.post-card__description {
+    font-size: 14px;
+    font-weight: var(--medium-font-weight);
+    opacity: 0.5;
+}

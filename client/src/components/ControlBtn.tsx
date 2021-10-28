@@ -9,18 +9,36 @@ function ControlBtn(props: ControlBtnTypes) {
     const { type, size } = props;
 
     return (
-        <div className={`control-btn${type === "next" ? " control-btn--reverse" : ""}`}>
+        <button
+            className={`control-btn${type === "next" ? " control-btn--reverse" : ""}${
+                size === "large" ? " control-large" : ""
+            }`}
+        >
             <div
                 className={`control-btn__arrow${
                     type === "next" ? " control-btn__arrow--reverse" : ""
-                }`}
+                }${size === "large" ? " control-btn__arrow--large" : ""}`}
             >
-                <div className="control-btn__arrow-line control-btn__arrow-line--top" />
-                <div className="control-btn__arrow-line control-btn__arrow-line--bottom" />
+                <div
+                    className={`control-btn__arrow-line control-btn__arrow-line--top${
+                        size === "large" ? " control-btn__arrow-line--large" : ""
+                    }`}
+                />
+                <div
+                    className={`control-btn__arrow-line control-btn__arrow-line--bottom${
+                        size === "large" ? " control-btn__arrow-line--large" : ""
+                    }`}
+                />
             </div>
 
-            <p className="control-btn__text">{type === "next" ? "Next" : "Prev"}</p>
-        </div>
+            <p
+                className={`control-btn__text${
+                    size === "large" ? " control-btn__text--large" : ""
+                }`}
+            >
+                {type === "next" ? "Next" : "Prev"}
+            </p>
+        </button>
     );
 }
 

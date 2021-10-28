@@ -1,0 +1,30 @@
+@import "breakpoints";
+
+.search-form {
+    position: relative;
+}
+
+.search-form__icon {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-45%);
+    pointer-events: none;
+
+    img {
+        display: block;
+        width: 19px;
+        height: 19px;
+    }
+}
+
+.search-form__text-input {
+    font-weight: var(--medium-font-weight);
+    padding: 3px 0;
+    padding-left: 30px;
+
+    &::placeholder {
+        color: var(--primary-text-color);
+        opacity: 0.5;
+    }
+}

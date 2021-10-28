@@ -1,0 +1,10 @@
+.loading-animation {
+    display: flex;
+    gap: 5px;
+}
+
+.loading-animation__line {
+    width: 2px;
+    height: 10px;
+    background-color: var(--dark-grey);
+}

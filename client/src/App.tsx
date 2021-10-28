@@ -5,6 +5,8 @@ import { loadFavorites } from "./redux/slices/favoritesSlice";
 import { loadPosts } from "./redux/slices/postsSlice";
 import Header from "./components/Header";
 import "./styles/App.scss";
+import Posts from "./components/Posts";
+import ContentContainer from "./components/ContentContainer";
 
 function App() {
     const dispatch = useDispatch();
@@ -26,6 +28,12 @@ function App() {
     return (
         <Fragment>
             <Header />
+
+            <main>
+                <ContentContainer>
+                    <Posts />
+                </ContentContainer>
+            </main>
         </Fragment>
     );
 }
