@@ -1,10 +1,47 @@
+@import "breakpoints";
+
 .loading-animation {
     display: flex;
-    gap: 5px;
+    align-items: flex-end;
+    gap: 8px;
+    height: 19px;
+
+    @include min-width-lg {
+        gap: 9px;
+    }
 }
 
 .loading-animation__line {
-    width: 2px;
-    height: 10px;
+    width: 3.1px;
     background-color: var(--dark-grey);
+
+    &--first {
+        animation: 1s loading-animation infinite;
+    }
+
+    &--second {
+        animation: 0.6s loading-animation infinite;
+    }
+
+    &--third {
+        animation: 0.5s loading-animation infinite;
+    }
+
+    &--fourth {
+        animation: 1s 0.5s loading-animation infinite;
+    }
+
+    @keyframes loading-animation {
+        0% {
+            height: 19px;
+        }
+
+        30% {
+            height: 0;
+        }
+
+        100% {
+            height: 19px;
+        }
+    }
 }

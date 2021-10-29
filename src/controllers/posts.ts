@@ -23,7 +23,10 @@ async function getPostsListHandler({ database, req, res, next }: handlerTypes) {
         return res.status(403).json({ error: err.message });
     }
 
-    const { search, sort, page, limit } = query;
+    // reverse sort order
+    const sort = { [query.sort as string]: -1 };
+
+    const { search, page, limit } = query;
     const skip = ((page as number) - 1) * 4;
 
     // search for documents

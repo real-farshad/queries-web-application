@@ -2,7 +2,7 @@ import { db } from "../config/mongodb";
 
 type searchPostsList = (
     search: string,
-    sort: string,
+    sort: {},
     skip: number,
     limit: number
 ) => Promise<object[]>;

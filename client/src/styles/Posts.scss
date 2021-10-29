@@ -19,7 +19,7 @@
     }
 
     @include min-width-xl {
-        margin-bottom: 55px;
+        margin-bottom: 50px;
     }
 }
 
@@ -152,5 +152,33 @@
     @include min-width-md {
         width: 100%;
         margin-bottom: 10px;
+    }
+
+    &:nth-child(1) {
+        animation: 0.7s animate-post-card both;
+    }
+
+    &:nth-child(2) {
+        animation: 0.7s 0.1s animate-post-card both;
+    }
+
+    &:nth-child(3) {
+        animation: 0.7s 0.2s animate-post-card both;
+    }
+
+    &:nth-child(4) {
+        animation: 0.7s 0.3s animate-post-card both;
+    }
+
+    @keyframes animate-post-card {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 }

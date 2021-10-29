@@ -1,5 +1,9 @@
 @import "breakpoints";
 
+.post-card {
+    display: block;
+}
+
 .post-card__container {
     position: relative;
     height: 500px;
