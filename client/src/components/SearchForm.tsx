@@ -27,7 +27,7 @@ function SearchForm() {
                     placeholder="Search"
                     autoComplete="off"
                     value={searchInput}
-                    onClick={handleSearchInput}
+                    onChange={handleSearchInput}
                 />
             </div>
         </form>

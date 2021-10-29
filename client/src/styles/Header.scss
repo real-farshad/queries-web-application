@@ -4,6 +4,14 @@
     position: relative;
     margin-bottom: 60px;
     overflow: hidden;
+
+    @include min-width-md {
+        margin-bottom: 100px;
+    }
+
+    @include min-width-xl {
+        margin-bottom: 150px;
+    }
 }
 
 .header__background-light {

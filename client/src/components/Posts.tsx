@@ -1,12 +1,14 @@
 import { useSelector } from "react-redux";
-import { selectPosts } from "../redux/slices/postsSlice";
+import { selectPage, selectPosts, selectSort } from "../redux/slices/postsSlice";
 import ControlBtn from "./ControlBtn";
 import LoadingAnimation from "./LoadingAnimation";
 import SearchForm from "./SearchForm";
-import "../styles/Posts.scss";
 import PostCard from "./PostCard";
+import "../styles/Posts.scss";
 
 function Posts() {
+    const sort = useSelector(selectSort);
+    const page = useSelector(selectPage);
     const posts: any = useSelector(selectPosts);
 
     return (
@@ -18,11 +20,25 @@ function Posts() {
                     </div>
 
                     <div className="posts__sort-controls">
-                        <button className="posts__sort-new-btn">New</button>
+                        <button
+                            className={`posts__sort-new-btn${
+                                sort === "publish_date"
+                                    ? " posts__sort-new-btn--active"
+                                    : ""
+                            }`}
+                        >
+                            New
+                        </button>
 
-                        <span>|</span>
+                        <span className="posts__sort-buttons-separator">|</span>
 
-                        <button className="posts__sort-popular-btn">Popular</button>
+                        <button
+                            className={`posts__sort-popular-btn${
+                                sort === "views" ? " posts__sort-popular-btn--active" : ""
+                            }`}
+                        >
+                            Popular
+                        </button>
                     </div>
                 </div>
 
@@ -31,11 +47,19 @@ function Posts() {
                         {/* <LoadingAnimation /> */}
                     </div>
 
-                    <div className="posts__prev-btn">
+                    <div
+                        className={`posts__prev-btn${
+                            page !== 1 ? " posts__prev-btn--active" : ""
+                        }`}
+                    >
                         <ControlBtn />
                     </div>
 
-                    <div className="posts__next-btn">
+                    <div
+                        className={`posts__next-btn${
+                            page !== 3 ? " posts__next-btn--active" : ""
+                        }`}
+                    >
                         <ControlBtn type="next" />
                     </div>
                 </div>
@@ -46,7 +70,7 @@ function Posts() {
                     const { _id, image_url, title, description } = data;
 
                     return (
-                        <div className="posts__card" key={_id}>
+                        <a href="/#" className="posts__card" key={_id}>
                             <PostCard
                                 data={{
                                     image_url,
@@ -54,7 +78,7 @@ function Posts() {
                                     description,
                                 }}
                             />
-                        </div>
+                        </a>
                     );
                 })}
             </div>

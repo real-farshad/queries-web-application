@@ -2,6 +2,10 @@
 
 .intro__favorites-container {
     margin-bottom: 120px;
+
+    @include min-width-md {
+        margin-bottom: 110px;
+    }
 }
 
 .intro__favorites {
