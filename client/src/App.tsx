@@ -7,6 +7,7 @@ import ContentContainer from "./components/ContentContainer";
 import Header from "./components/Header";
 import Posts from "./components/Posts";
 import Community from "./components/Community";
+import Challenges from "./components/Challenges";
 import "./styles/App.scss";
 
 function App() {
@@ -35,6 +36,8 @@ function App() {
                     <Posts />
 
                     <Community />
+
+                    <Challenges />
                 </ContentContainer>
             </main>
         </Fragment>

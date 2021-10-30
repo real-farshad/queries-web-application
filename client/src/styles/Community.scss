@@ -1,7 +1,15 @@
 @import "breakpoints";
 
 .community {
-    margin-bottom: 150px;
+    margin-bottom: 130px;
+
+    @include min-width-lg {
+        margin-bottom: 120px;
+    }
+
+    @include min-width-xl {
+        margin-bottom: 200px;
+    }
 }
 
 .community__top-container {

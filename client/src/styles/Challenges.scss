@@ -1,0 +1,165 @@
+@import "breakpoints";
+
+.challenges {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 150px;
+
+    @include min-width-lg {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    @include min-width-lg {
+        gap: 60px;
+    }
+
+    @include min-width-xl {
+        gap: 100px;
+    }
+}
+
+.challenges__info {
+    @include min-width-md {
+        max-width: 80%;
+    }
+
+    @include min-width-lg {
+        max-width: 45%;
+        margin-bottom: 50px;
+    }
+
+    @include min-width-xl {
+        max-width: 450px;
+    }
+}
+
+.challenges__title {
+    max-width: 300px;
+    margin-bottom: 25px;
+
+    @include min-width-md {
+        max-width: 400px;
+    }
+
+    @include min-width-lg {
+        max-width: 300px;
+    }
+
+    @include min-width-xl {
+        max-width: 370px;
+        margin-bottom: 50px;
+    }
+}
+
+.challenges__description {
+    margin-bottom: 20px;
+
+    @include min-width-xl {
+        margin-bottom: 30px;
+    }
+}
+
+.challenges__wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 70px;
+
+    @include min-width-lg {
+        width: 100%;
+    }
+
+    @include min-width-xl {
+        width: auto;
+        justify-content: unset;
+        gap: 30px;
+    }
+}
+
+.challenges__image-container {
+    position: relative;
+    width: 45%;
+
+    @include min-width-md {
+        width: 47%;
+    }
+
+    @include min-width-xl {
+        width: auto;
+    }
+}
+
+.challenges__image-container--second {
+    transform: translateY(20px);
+
+    @include min-width-xl {
+        transform: translateY(30px);
+    }
+}
+
+.challenges__image-bg {
+    position: absolute;
+    width: 40%;
+    height: 300px;
+    background-color: var(--primary-accent-color);
+
+    @include min-width-md {
+        width: 15%;
+        height: 350px;
+    }
+
+    @include min-width-lg {
+        width: 25%;
+    }
+
+    @include min-width-xl {
+        width: 60px;
+        height: 400px;
+    }
+}
+
+.challenges__image-bg--first {
+    bottom: 0;
+    left: 0;
+}
+
+.challenges__image-bg--second {
+    top: 0;
+    right: 0;
+}
+
+.challenges__image {
+    position: relative;
+    width: 100%;
+    height: 350px;
+
+    @include min-width-md {
+        height: 400px;
+    }
+
+    @include min-width-xl {
+        width: 280px;
+        height: 460px;
+    }
+}
+
+.challenges__image--first {
+    padding-bottom: 50px;
+    padding-left: 20px;
+
+    @include min-width-xl {
+        padding-bottom: 60px;
+        padding-left: 30px;
+    }
+}
+
+.challenges__image--second {
+    padding-top: 50px;
+    padding-right: 20px;
+
+    @include min-width-xl {
+        padding-top: 60px;
+        padding-right: 30px;
+    }
+}
