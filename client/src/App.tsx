@@ -3,10 +3,11 @@ import { useDispatch } from "react-redux";
 import { finishPageLoading } from "./redux/slices/loadingSlice";
 import { loadFavorites } from "./redux/slices/favoritesSlice";
 import { loadPosts } from "./redux/slices/postsSlice";
-import Header from "./components/Header";
-import "./styles/App.scss";
-import Posts from "./components/Posts";
 import ContentContainer from "./components/ContentContainer";
+import Header from "./components/Header";
+import Posts from "./components/Posts";
+import Community from "./components/Community";
+import "./styles/App.scss";
 
 function App() {
     const dispatch = useDispatch();
@@ -32,6 +33,8 @@ function App() {
             <main>
                 <ContentContainer>
                     <Posts />
+
+                    <Community />
                 </ContentContainer>
             </main>
         </Fragment>

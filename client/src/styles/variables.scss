@@ -16,7 +16,7 @@
     --white: rgb(255, 255, 255);
     --dark-grey: rgb(25, 25, 25);
     --background-color: rgb(242, 242, 242);
-    --primary-accent-color: rgb(255, 174, 41);
+    --primary-accent-color: rgb(0, 104, 135);
 
     /* Text color */
     --primary-text-color: var(--dark-grey);
@@ -32,6 +32,8 @@
     }
 
     @include min-width-xl {
+        --standard-title-font-size: 36px;
+
         --content-space: 100px;
     }
 }

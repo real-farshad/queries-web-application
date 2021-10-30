@@ -1,7 +1,15 @@
 @import "breakpoints";
 
 .posts {
-    margin-bottom: 100px;
+    margin-bottom: 130px;
+
+    @include min-width-lg {
+        margin-bottom: 120px;
+    }
+
+    @include min-width-xl {
+        margin-bottom: 200px;
+    }
 }
 
 .posts__controls {

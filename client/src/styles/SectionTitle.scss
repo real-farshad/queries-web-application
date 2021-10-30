@@ -1,0 +1,10 @@
+@import "breakpoints";
+
+.section-title {
+    font-size: var(--standard-title-font-size);
+    font-weight: var(--bold-font-weight);
+}
+
+.section-title__keyword {
+    color: var(--primary-accent-color);
+}
