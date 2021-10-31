@@ -3,20 +3,18 @@
 .challenges {
     display: flex;
     flex-direction: column-reverse;
-    margin-bottom: 150px;
+    margin-bottom: 140px;
 
     @include min-width-lg {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-    }
-
-    @include min-width-lg {
         gap: 60px;
+        margin-bottom: 100px;
     }
 
     @include min-width-xl {
-        gap: 100px;
+        margin-bottom: 150px;
     }
 }
 

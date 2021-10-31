@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Posts from "./components/Posts";
 import Community from "./components/Community";
 import Challenges from "./components/Challenges";
+import Tools from "./components/Tools";
 import "./styles/App.scss";
 
 function App() {
@@ -38,6 +39,8 @@ function App() {
                     <Community />
 
                     <Challenges />
+
+                    <Tools />
                 </ContentContainer>
             </main>
         </Fragment>
