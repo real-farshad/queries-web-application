@@ -9,6 +9,7 @@ import Posts from "./components/Posts";
 import Community from "./components/Community";
 import Challenges from "./components/Challenges";
 import Tools from "./components/Tools";
+import Footer from "./components/Footer";
 import "./styles/App.scss";
 
 function App() {
@@ -32,8 +33,8 @@ function App() {
         <Fragment>
             <Header />
 
-            <main>
-                <ContentContainer>
+            <ContentContainer>
+                <main>
                     <Posts />
 
                     <Community />
@@ -41,8 +42,10 @@ function App() {
                     <Challenges />
 
                     <Tools />
-                </ContentContainer>
-            </main>
+                </main>
+
+                <Footer />
+            </ContentContainer>
         </Fragment>
     );
 }

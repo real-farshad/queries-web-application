@@ -1,0 +1,26 @@
+@import "breakpoints";
+
+.footer {
+    width: 90%;
+    margin-bottom: 30px;
+
+    @include min-width-md {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 35px;
+    }
+
+    @include min-width-xl {
+        margin-bottom: 45px;
+    }
+}
+
+.footer__copyright {
+    margin-bottom: 10px;
+    opacity: 0.5;
+
+    @include min-width-md {
+        margin-bottom: 0;
+    }
+}
