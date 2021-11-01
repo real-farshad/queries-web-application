@@ -1,13 +1,13 @@
 import { db } from "../config/mongodb";
 
-type searchPostsList = (
+type searchPostsListTypes = (
     search: string,
     sort: {},
     skip: number,
     limit: number
 ) => Promise<object[]>;
 
-const searchPostsList: searchPostsList = async (search, sort, skip, limit) => {
+const searchPostsList: searchPostsListTypes = async (search, sort, skip, limit) => {
     const find = search.length === 0 ? {} : { $text: { $search: search } };
     const cursor = await db
         .collection("posts")
@@ -17,6 +17,12 @@ const searchPostsList: searchPostsList = async (search, sort, skip, limit) => {
         .limit(limit);
 
     const result = await cursor.toArray();
+    return result;
+};
+
+const countPosts = async (search: string) => {
+    const find = search.length === 0 ? {} : { $text: { $search: search } };
+    const result = await db.collection("posts").find(find).count();
     return result;
 };
 
@@ -33,6 +39,7 @@ const createTitleAndDescriptionTextIndex = async () => {
 
 const database = {
     searchPostsList,
+    countPosts,
     addManyPosts,
     createTitleAndDescriptionTextIndex,
 };

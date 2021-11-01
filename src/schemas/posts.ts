@@ -9,11 +9,14 @@ const postSchema = Joi.object({
 });
 
 const postQuerySchema = Joi.object({
-    search: Joi.string().min(3).max(64).allow(""),
+    search: Joi.string().min(1).max(64).allow(""),
     sort: Joi.string().valid("publish_date", "views"),
     page: Joi.number().min(0),
     limit: Joi.number().valid(4),
 });
 
+// Schema for posts count's route, validation
+const postSearchSchema = Joi.string().min(1).max(64).allow("");
+
 export default postSchema;
-export { postQuerySchema };
+export { postQuerySchema, postSearchSchema };

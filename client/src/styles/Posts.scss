@@ -8,7 +8,7 @@
     }
 
     @include min-width-xl {
-        margin-bottom: 200px;
+        margin-bottom: 205px;
     }
 }
 
@@ -135,6 +135,28 @@
 
     @include min-width-md {
         order: 2;
+    }
+}
+
+.posts__empty {
+    padding-bottom: 60px;
+
+    @include min-width-lg {
+        height: 426px;
+        padding-bottom: 0;
+    }
+
+    @include min-width-xl {
+        height: 483px;
+    }
+
+    h1 {
+        font-weight: var(--bold-font-weight);
+        margin-bottom: 10px;
+    }
+
+    p {
+        opacity: 0.5;
     }
 }
 

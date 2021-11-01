@@ -1,6 +1,6 @@
 import { handlerTypes, controllerTypes } from "../utils/controllerTypes";
 import database from "../services/posts";
-import { postQuerySchema } from "../schemas/posts";
+import { postQuerySchema, postSearchSchema } from "../schemas/posts";
 
 // GET /
 const getPostsList: controllerTypes = (req, res, next) => {
@@ -31,17 +31,33 @@ async function getPostsListHandler({ database, req, res, next }: handlerTypes) {
 
     // search for documents
     try {
-        const result: object[] = await database.searchPostsList(
-            search,
-            sort,
-            skip,
-            limit
-        );
-
+        const result = await database.searchPostsList(search, sort, skip, limit);
         return res.json(result);
     } catch (err) {
         next(err);
     }
 }
 
-export { getPostsList };
+const getPostsCount: controllerTypes = (req, res, next) => {
+    return getPostsCountHandler({ database, req, res, next });
+};
+
+async function getPostsCountHandler({ database, req, res, next }: any) {
+    let search = req.query.search || "";
+
+    // validate search query
+    try {
+        search = await postSearchSchema.validateAsync(search);
+    } catch (err: any) {
+        return res.status(403).json({ error: err.message });
+    }
+
+    try {
+        const result = await database.countPosts(search);
+        return res.json(result);
+    } catch (err) {
+        next(err);
+    }
+}
+
+export { getPostsList, getPostsCount };

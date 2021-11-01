@@ -7,7 +7,7 @@
     align-items: center;
     padding-top: var(--content-space);
     padding-bottom: 35px;
-    z-index: 999;
+    z-index: 99;
 
     @include min-width-md {
         padding-top: 30px;

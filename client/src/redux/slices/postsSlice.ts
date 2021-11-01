@@ -7,6 +7,7 @@ const postsSlice = createSlice({
         search: "",
         sort: "publish_date",
         page: 1,
+        numberOfPages: 1,
         data: [],
     },
     reducers: {
@@ -22,6 +23,10 @@ const postsSlice = createSlice({
             state.page = payload;
         },
 
+        changeNumberOfPages: (state, { payload }) => {
+            state.numberOfPages = payload;
+        },
+
         loadPosts: (state, { payload }) => {
             state.data = payload;
         },
@@ -32,12 +37,19 @@ const postsSlice = createSlice({
     },
 });
 
-export const { changeSearch, changeSort, changePage, loadPosts, addNewPosts } =
-    postsSlice.actions;
+export const {
+    changeSearch,
+    changeSort,
+    changePage,
+    changeNumberOfPages,
+    loadPosts,
+    addNewPosts,
+} = postsSlice.actions;
 
 export const selectSearch = (state: RootState) => state.posts.search;
 export const selectSort = (state: RootState) => state.posts.sort;
 export const selectPage = (state: RootState) => state.posts.page;
+export const selectNumberOfPages = (state: RootState) => state.posts.numberOfPages;
 export const selectPosts = (state: RootState) => state.posts.data;
 
 export default postsSlice.reducer;

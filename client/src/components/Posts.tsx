@@ -17,6 +17,7 @@ import {
     selectPosts,
     selectSort,
     changePage,
+    selectNumberOfPages,
     changeSort,
     loadPosts,
     addNewPosts,
@@ -27,6 +28,7 @@ function Posts() {
     const search = useSelector(selectSearch);
     const sort = useSelector(selectSort);
     const page = useSelector(selectPage);
+    const numberOfPages = useSelector(selectNumberOfPages);
     const posts: any = useSelector(selectPosts);
 
     const dispatch = useDispatch();
@@ -68,7 +70,7 @@ function Posts() {
     }
 
     async function handleClickOnNext() {
-        if (page === 3 || loading) return;
+        if (page === numberOfPages || loading) return;
 
         // if posts are already fetch use them, otherwise fetch posts
         if (posts[page * 4]) {
@@ -137,7 +139,7 @@ function Posts() {
 
                     <div
                         className={`posts__next-btn${
-                            page !== 3 ? " posts__next-btn--active" : ""
+                            page !== numberOfPages ? " posts__next-btn--active" : ""
                         }`}
                         onClick={handleClickOnNext}
                     >
@@ -145,6 +147,13 @@ function Posts() {
                     </div>
                 </div>
             </div>
+
+            {posts.length === 0 && (
+                <div className="posts__empty">
+                    <h1>No Post Was Found!</h1>
+                    <p>Please search for something else or nothing to get all posts.</p>
+                </div>
+            )}
 
             <div className="posts__cards-container">
                 {posts.slice((page - 1) * 4, page * 4).map((data: any) => {

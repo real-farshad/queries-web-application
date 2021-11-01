@@ -9,6 +9,7 @@ import {
     selectSort,
     changeSearch,
     changePage,
+    changeNumberOfPages,
     loadPosts,
 } from "../redux/slices/postsSlice";
 
@@ -26,15 +27,22 @@ function SearchForm() {
     async function handleSubmitForm(e: any) {
         e.preventDefault();
 
-        // check if the search string is just a bunch of spaces
+        // check to make sure that the search string is not just a bunch of empty spaces
         let isEmptyString = true;
         for (let char of searchInput) if (char !== " ") isEmptyString = false;
-        if (searchInput === "" || isEmptyString) return;
+        if (searchInput.length !== 0 && isEmptyString) return;
 
         dispatch(startPostsLoading());
 
-        const res = await fetch(`/api/posts?search=${searchInput}&sort=${sort}&page=1`);
-        const newPosts = await res.json();
+        const postsCountRes = await fetch(`/api/posts/count?search=${searchInput}`);
+        const postsCount = await postsCountRes.json();
+        const numberOfPages = postsCount === 0 ? 1 : Math.ceil(postsCount / 4);
+        dispatch(changeNumberOfPages(numberOfPages));
+
+        const postsRes = await fetch(
+            `/api/posts?search=${searchInput}&sort=${sort}&page=1`
+        );
+        const newPosts = await postsRes.json();
         dispatch(loadPosts(newPosts));
 
         dispatch(changeSearch(searchInput));
