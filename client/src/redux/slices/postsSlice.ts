@@ -5,7 +5,7 @@ const postsSlice = createSlice({
     name: "posts",
     initialState: {
         search: "",
-        sort: "publish_date",
+        sort: "new",
         page: 1,
         numberOfPages: 1,
         data: [],

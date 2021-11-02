@@ -35,6 +35,7 @@ function App() {
             const posts = await postsRes.json();
             dispatch(loadPosts(posts));
 
+            // stop page loading after 1s so that the images will be loaded
             setTimeout(() => dispatch(finishPageLoading()), 1000);
         })();
     }, []);

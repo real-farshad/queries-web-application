@@ -34,30 +34,32 @@ function Posts() {
     const dispatch = useDispatch();
 
     async function handleClickOnNew() {
-        if (sort === "publish_date" || loading) return;
+        if (sort === "new" || loading) return;
 
         dispatch(startPostsLoading());
 
-        const res = await fetch(`/api/posts?search=${search}&sort=publish_date&page=1`);
+        // fetch latest post in descending order
+        const res = await fetch(`/api/posts?search=${search}&sort=new&page=1`);
         const newPosts = await res.json();
         dispatch(loadPosts(newPosts));
 
-        dispatch(changeSort("publish_date"));
+        dispatch(changeSort("new"));
         dispatch(changePage(1));
 
         dispatch(finishPostsLoading());
     }
 
     async function handleClickOnPopular() {
-        if (sort === "views" || loading) return;
+        if (sort === "popular" || loading) return;
 
         dispatch(startPostsLoading());
 
-        const res = await fetch(`/api/posts?search=${search}&sort=views&page=1`);
+        // fetch popular posts in descending order
+        const res = await fetch(`/api/posts?search=${search}&sort=popular&page=1`);
         const newPosts = await res.json();
         dispatch(loadPosts(newPosts));
 
-        dispatch(changeSort("views"));
+        dispatch(changeSort("popular"));
         dispatch(changePage(1));
 
         dispatch(finishPostsLoading());
@@ -72,10 +74,9 @@ function Posts() {
     async function handleClickOnNext() {
         if (page === numberOfPages || loading) return;
 
-        // if posts are already fetch use them, otherwise fetch posts
-        if (posts[page * 4]) {
-            return dispatch(changePage(page + 1));
-        }
+        // if posts are already fetched, use them, otherwise fetch posts
+        const nextPageFirstPost = posts[page * 4];
+        if (nextPageFirstPost) return dispatch(changePage(page + 1));
 
         dispatch(startPostsLoading());
 
@@ -101,9 +102,7 @@ function Posts() {
                     <div className="posts__sort-controls">
                         <button
                             className={`posts__sort-new-btn${
-                                sort === "publish_date"
-                                    ? " posts__sort-new-btn--active"
-                                    : ""
+                                sort === "new" ? " posts__sort-new-btn--active" : ""
                             }`}
                             onClick={handleClickOnNew}
                         >
@@ -114,7 +113,9 @@ function Posts() {
 
                         <button
                             className={`posts__sort-popular-btn${
-                                sort === "views" ? " posts__sort-popular-btn--active" : ""
+                                sort === "popular"
+                                    ? " posts__sort-popular-btn--active"
+                                    : ""
                             }`}
                             onClick={handleClickOnPopular}
                         >

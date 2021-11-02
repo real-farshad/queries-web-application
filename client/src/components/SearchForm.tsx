@@ -27,18 +27,20 @@ function SearchForm() {
     async function handleSubmitForm(e: any) {
         e.preventDefault();
 
-        // check to make sure that the search string is not just a bunch of empty spaces
+        // check to make sure the search string is not just a bunch of empty spaces
         let isEmptyString = true;
         for (let char of searchInput) if (char !== " ") isEmptyString = false;
         if (searchInput.length !== 0 && isEmptyString) return;
 
         dispatch(startPostsLoading());
 
+        // fetch number of related posts
         const postsCountRes = await fetch(`/api/posts/count?search=${searchInput}`);
         const postsCount = await postsCountRes.json();
         const numberOfPages = postsCount === 0 ? 1 : Math.ceil(postsCount / 4);
         dispatch(changeNumberOfPages(numberOfPages));
 
+        // fetch posts
         const postsRes = await fetch(
             `/api/posts?search=${searchInput}&sort=${sort}&page=1`
         );

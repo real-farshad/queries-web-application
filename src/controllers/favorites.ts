@@ -1,13 +1,8 @@
-import { handlerTypes, controllerTypes } from "../utils/controllerTypes";
-import database from "../services/favorites";
+import { handlerTypes } from "../utils/controllerTypes";
 import favoriteSchema from "../schemas/favorites";
 
 // GET /
-const getFavoritesList: controllerTypes = (req, res, next) => {
-    return getFavoritesListHandler({ database, req, res, next });
-};
-
-async function getFavoritesListHandler({ database, req, res, next }: handlerTypes) {
+async function getFavoritesList({ database, req, res, next }: handlerTypes) {
     try {
         const result: any = await database.getFavoritesList();
         return res.json(result);
@@ -17,11 +12,7 @@ async function getFavoritesListHandler({ database, req, res, next }: handlerType
 }
 
 // GET /:id
-const getFavoriteById: controllerTypes = (req, res, next) => {
-    return getFavoriteByIdHandler({ database, req, res, next });
-};
-
-async function getFavoriteByIdHandler({ database, req, res, next }: handlerTypes) {
+async function getFavoriteById({ database, req, res, next }: handlerTypes) {
     try {
         const result = await database.findFavoriteById(req.params.id);
         if (!result) {
@@ -37,11 +28,7 @@ async function getFavoriteByIdHandler({ database, req, res, next }: handlerTypes
 }
 
 // POST /
-const createFavorite: controllerTypes = (req, res, next) => {
-    return createFavoriteHandler({ database, req, res, next });
-};
-
-async function createFavoriteHandler({ database, req, res, next }: handlerTypes) {
+async function createFavorite({ database, req, res, next }: handlerTypes) {
     let value;
     try {
         value = await favoriteSchema.validateAsync(req.body);
@@ -58,11 +45,7 @@ async function createFavoriteHandler({ database, req, res, next }: handlerTypes)
 }
 
 // PUT /:id
-const updateFavoriteById: controllerTypes = (req, res, next) => {
-    return updateFavoriteByIdHandler({ database, req, res, next });
-};
-
-async function updateFavoriteByIdHandler({ database, req, res, next }: handlerTypes) {
+async function updateFavoriteById({ database, req, res, next }: handlerTypes) {
     let value;
     try {
         value = await favoriteSchema.validateAsync(req.body);
@@ -87,11 +70,7 @@ async function updateFavoriteByIdHandler({ database, req, res, next }: handlerTy
 }
 
 // DELETE /:id
-const deleteFavoriteById: controllerTypes = (req, res, next) => {
-    return deleteFavoriteByIdHandler({ database, req, res, next });
-};
-
-async function deleteFavoriteByIdHandler({ database, req, res, next }: handlerTypes) {
+async function deleteFavoriteById({ database, req, res, next }: handlerTypes) {
     const deletedCount = await database.deleteFavoriteById(req.params.id);
 
     if (deletedCount !== 1) {

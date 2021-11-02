@@ -1,17 +1,12 @@
-import { handlerTypes, controllerTypes } from "../utils/controllerTypes";
-import database from "../services/posts";
+import { handlerTypes } from "../utils/controllerTypes";
 import { postQuerySchema, postSearchSchema } from "../schemas/posts";
 
 // GET /
-const getPostsList: controllerTypes = (req, res, next) => {
-    return getPostsListHandler({ database, req, res, next });
-};
-
-async function getPostsListHandler({ database, req, res, next }: handlerTypes) {
+async function getPostsList({ database, req, res, next }: handlerTypes) {
     // make query object base on url params
     let query = {
         search: req.query.search || "",
-        sort: req.query.sort || "publish_date",
+        sort: req.query.sort || "new",
         page: req.query.page || 1,
         limit: 4,
     };
@@ -23,13 +18,16 @@ async function getPostsListHandler({ database, req, res, next }: handlerTypes) {
         return res.status(403).json({ error: err.message });
     }
 
-    // reverse sort order
-    const sort = { [query.sort as string]: -1 };
+    // translate sort order to it's related post document field
+    const sortKey = query.sort === "new" ? "publish_date" : "views";
+
+    // reverse sort order to show newest and most popular first
+    const sort = { [sortKey]: -1 };
 
     const { search, page, limit } = query;
     const skip = ((page as number) - 1) * 4;
 
-    // search for documents
+    // search for related posts
     try {
         const result = await database.searchPostsList(search, sort, skip, limit);
         return res.json(result);
@@ -38,20 +36,19 @@ async function getPostsListHandler({ database, req, res, next }: handlerTypes) {
     }
 }
 
-const getPostsCount: controllerTypes = (req, res, next) => {
-    return getPostsCountHandler({ database, req, res, next });
-};
-
-async function getPostsCountHandler({ database, req, res, next }: any) {
+// GET /count
+async function getPostsCount({ database, req, res, next }: any) {
+    // get the search string from query prams
     let search = req.query.search || "";
 
-    // validate search query
+    // validate search string
     try {
         search = await postSearchSchema.validateAsync(search);
     } catch (err: any) {
         return res.status(403).json({ error: err.message });
     }
 
+    // count related posts
     try {
         const result = await database.countPosts(search);
         return res.json(result);

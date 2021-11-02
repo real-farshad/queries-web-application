@@ -10,7 +10,7 @@ const postSchema = Joi.object({
 
 const postQuerySchema = Joi.object({
     search: Joi.string().min(1).max(64).allow(""),
-    sort: Joi.string().valid("publish_date", "views"),
+    sort: Joi.string().valid("new", "popular"),
     page: Joi.number().min(0),
     limit: Joi.number().valid(4),
 });

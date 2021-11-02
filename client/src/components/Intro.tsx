@@ -16,12 +16,14 @@ function Intro() {
     // windowWidth can be sm, md or xl
     const [windowWidth, setWindowWidth] = useState(getWindowWidth());
 
+    // change slider position on page and resize change
     useEffect(() => {
         if (!favoritesRef) return;
         const cardsLeftPosition = calculateCardsLeftPosition();
         favoritesRef.current.style.transform = `translateX(-${cardsLeftPosition}%)`;
     }, [slideIndex, windowWidth]);
 
+    // handle resize changes and layout shift on different screen sizes
     useEffect(() => {
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
@@ -57,18 +59,23 @@ function Intro() {
 
     function getWindowWidth() {
         const windowWidth = window.innerWidth;
+
+        // translate window with to sm, md or xl
         if (windowWidth < 768) return "sm";
         if (windowWidth < 1200) return "md";
         return "xl";
     }
 
     function calculateCardsLeftPosition() {
+        // slides left position on sm
         const smCardsPosition = [0, 93, 186, 279, 372, 465];
         if (windowWidth === "sm") return smCardsPosition[slideIndex];
 
+        // slides left position on md
         const mdCardsPosition = [0, 104, 208];
         if (windowWidth === "md") return mdCardsPosition[slideIndex / 2];
 
+        // slides left position on xl
         const xlCardsPosition = [0, 102.5, 205];
         return xlCardsPosition[slideIndex / 2];
     }
