@@ -6,8 +6,13 @@
     "scripts": {
         "server-dev": "ts-node-dev --respawn --transpile-only src/server.ts",
         "client-dev": "cd client && npm run start",
+        "populate-dev": "ts-node ./src/populate/script.ts",
         "dev": "concurrently \"npm run server-dev\" \"npm run client-dev\"",
-        "populate": "ts-node ./src/populate/script.ts"
+        "server-build": "tsc",
+        "client-build": "cd client && npm install && npm run build",
+        "populate-prod": "node ./dist/populate/script.js",
+        "build": "npm run server-build && npm run client-build && npm run populate-prod",
+        "start": "node ./dist/server.js"
     },
     "keywords": [],
     "author": "",

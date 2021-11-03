@@ -19,6 +19,12 @@ app.use(express.static(path.resolve(__dirname, "../public")));
 // routes
 app.use("/api", routes);
 
+// Connect the react app
+app.use(express.static(path.resolve(__dirname, "../client/build")));
+app.get("*", (req, res) => {
+    return res.sendFile(path.resolve(__dirname, "../client/build/index.html"));
+});
+
 // default error handler
 app.use(errorHandler);
 
