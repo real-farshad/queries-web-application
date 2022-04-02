@@ -7,7 +7,7 @@ const favoritesSlice = createSlice({
         data: [],
     },
     reducers: {
-        loadFavorites: (state, { payload }) => {
+        loadFavorites(state, { payload }) {
             state.data = payload;
         },
     },

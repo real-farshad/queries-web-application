@@ -8,19 +8,19 @@ const loadingSlice = createSlice({
         postsLoading: false,
     },
     reducers: {
-        startPageLoading: (state) => {
+        startPageLoading(state) {
             state.pageLoading = true;
         },
 
-        finishPageLoading: (state) => {
+        finishPageLoading(state) {
             state.pageLoading = false;
         },
 
-        startPostsLoading: (state) => {
+        startPostsLoading(state) {
             state.postsLoading = true;
         },
 
-        finishPostsLoading: (state) => {
+        finishPostsLoading(state) {
             state.postsLoading = false;
         },
     },
