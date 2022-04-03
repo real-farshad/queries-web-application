@@ -1,8 +1,8 @@
 # Full-Stack Query Web Application
 
 Live demo: [full-stack-query-application.herokuapp.com](https://full-stack-query-application.herokuapp.com/)<br>
-Teck stack for front-end: typescript, react, redux, sass<br>
-Teck stack for back-end: typescript, node.js, express, joi, mongodb nodejs driver
+Tech stack for front-end: typescript, react, redux, sass<br>
+Tech stack for back-end: typescript, node.js, express, joi, mongodb nodejs driver
 
 Front-end is a responsive mobile first react and redux application. Utilizing redux toolkit and including custom animations and a nav menu for smaller screens.
 
