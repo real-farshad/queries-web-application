@@ -18,7 +18,7 @@ function FavoriteCard({ data, count }: FavoriteCardTypes) {
                     <CoverImage src={data.image_url} />
                 </div>
                 <div className="favorite-card__count">
-                    <span>0{count}</span>
+                    <span data-testid="count">0{count}</span>
                 </div>
             </div>
             <div className="favorite-card__info">

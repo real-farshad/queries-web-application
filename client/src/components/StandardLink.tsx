@@ -12,7 +12,9 @@ function StandardLink(props: StandardLinkTypes) {
     return (
         <a
             href={href}
-            className={`standard-link${textOnly ? " standard-link--text-only" : ""}`}
+            className={`standard-link${
+                textOnly ? " standard-link--text-only" : ""
+            }`}
         >
             {text} <span className="standard-link__line" />
         </a>

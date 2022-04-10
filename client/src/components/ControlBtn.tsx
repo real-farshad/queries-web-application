@@ -10,9 +10,10 @@ function ControlBtn(props: ControlBtnTypes) {
 
     return (
         <button
-            className={`control-btn${type === "next" ? " control-btn--reverse" : ""}${
-                size === "large" ? " control-large" : ""
-            }`}
+            className={`control-btn${
+                type === "next" ? " control-btn--reverse" : ""
+            }${size === "large" ? " control-btn--large" : ""}`}
+            data-testid={size === "large" ? "large" : ""}
         >
             <div
                 className={`control-btn__arrow${
@@ -21,12 +22,16 @@ function ControlBtn(props: ControlBtnTypes) {
             >
                 <div
                     className={`control-btn__arrow-line control-btn__arrow-line--top${
-                        size === "large" ? " control-btn__arrow-line--large" : ""
+                        size === "large"
+                            ? " control-btn__arrow-line--large"
+                            : ""
                     }`}
                 />
                 <div
                     className={`control-btn__arrow-line control-btn__arrow-line--bottom${
-                        size === "large" ? " control-btn__arrow-line--large" : ""
+                        size === "large"
+                            ? " control-btn__arrow-line--large"
+                            : ""
                     }`}
                 />
             </div>

@@ -11,6 +11,7 @@ function CoverImage({ src }: CoverImageTypes) {
             style={{
                 backgroundImage: `url(${src})`,
             }}
+            data-testid="cover-image"
         />
     );
 }
