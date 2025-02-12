@@ -3,17 +3,17 @@ import database from "../services/favorites";
 import validateObjectId from "../middlewares/validateObjectId";
 
 import {
-    getFavoritesList,
-    getFavoriteById,
-    createFavorite,
-    updateFavoriteById,
-    deleteFavoriteById,
+  getFavoritesList,
+  getFavoriteById,
+  createFavorite,
+  updateFavoriteById,
+  deleteFavoriteById,
 } from "../controllers/favorites";
 
 const router = express.Router();
 
-router.get("/", (req, res, next) => {
-    return getFavoritesList({ database, req, res, next });
+router.get("/", (req, res, next): any => {
+  return getFavoritesList({ database, req, res, next });
 });
 
 // router.get("/:id", validateObjectId, (req, res, next) => {
