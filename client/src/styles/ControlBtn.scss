@@ -1,69 +1,69 @@
-@import "breakpoints";
+@use "breakpoints" as *;
 
 .control-btn {
-    display: flex;
-    align-items: center;
-    gap: 7px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
 
-    &--large {
-        gap: 10px;
-    }
+  &--large {
+    gap: 10px;
+  }
 
-    &--reverse {
-        flex-direction: row-reverse;
-    }
+  &--reverse {
+    flex-direction: row-reverse;
+  }
 }
 
 .control-btn__arrow {
-    padding-top: 3px;
+  padding-top: 3px;
 
-    &--large {
-        padding-top: 7px;
-    }
+  &--large {
+    padding-top: 7px;
+  }
 
-    &--reverse {
-        transform: scaleX(-1);
-    }
+  &--reverse {
+    transform: scaleX(-1);
+  }
 }
 
 .control-btn__arrow-line {
-    width: 7px;
-    height: 1.9px;
-    background-color: var(--dark-grey);
+  width: 7px;
+  height: 1.9px;
+  background-color: var(--dark-grey);
 
-    &--large {
-        width: 9px;
-        height: 3.4px;
-    }
+  &--large {
+    width: 9px;
+    height: 3.4px;
+  }
 }
 
 .control-btn__arrow-line--top,
 .control-btn__arrow-line--bottom {
-    transform-origin: left;
+  transform-origin: left;
 }
 
 .control-btn__arrow-line--top {
-    transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 .control-btn__arrow-line--bottom {
-    transform: translateY(-3px) rotate(45deg);
+  transform: translateY(-3px) rotate(45deg);
 }
 
 .control-btn__arrow--large .control-btn__arrow-line--bottom {
-    transform: translateY(-5px) rotate(45deg);
+  transform: translateY(-5px) rotate(45deg);
 }
 
 .control-btn__text {
-    font-size: 16px;
-    font-weight: var(--medium-font-weight);
+  font-size: 16px;
+  font-weight: var(--medium-font-weight);
 
-    &--large {
-        font-size: 18px;
-        font-weight: var(--bold-font-weight);
+  &--large {
+    font-size: 18px;
+    font-weight: var(--bold-font-weight);
 
-        @include min-width-xl {
-            font-size: 20px;
-        }
+    @include min-width-xl {
+      font-size: 20px;
     }
+  }
 }

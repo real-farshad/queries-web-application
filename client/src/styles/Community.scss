@@ -1,142 +1,142 @@
-@import "breakpoints";
+@use "breakpoints" as *;
 
 .community {
-    margin-bottom: 150px;
+  margin-bottom: 150px;
 
-    @include min-width-lg {
-        margin-bottom: 120px;
-    }
+  @include min-width-lg {
+    margin-bottom: 120px;
+  }
 
-    @include min-width-xl {
-        margin-bottom: 205px;
-    }
+  @include min-width-xl {
+    margin-bottom: 205px;
+  }
 }
 
 .community__top-container {
-    @include min-width-lg {
-        display: flex;
-    }
+  @include min-width-lg {
+    display: flex;
+  }
 }
 
 .community__title-for-large {
-    display: none;
+  display: none;
 
-    @include min-width-lg {
-        display: block;
-        flex-shrink: 0;
-        max-width: 278px;
-        padding: 15px;
-        padding-bottom: 115px;
-        margin: auto 15px;
-    }
+  @include min-width-lg {
+    display: block;
+    flex-shrink: 0;
+    max-width: 278px;
+    padding: 15px;
+    padding-bottom: 115px;
+    margin: auto 15px;
+  }
 
-    @include min-width-xl {
-        max-width: 340px;
-        padding-bottom: 105px;
-    }
+  @include min-width-xl {
+    max-width: 340px;
+    padding-bottom: 105px;
+  }
 }
 
 .community__top-image,
 .community__bottom-image {
-    width: 80%;
+  width: 80%;
+  height: 350px;
+  border: 10px solid var(--background-color);
+
+  @include min-width-md {
+    width: 85%;
+    height: 250px;
+  }
+
+  @include min-width-lg {
+    width: auto;
+    height: 300px;
+    flex-grow: 1;
+  }
+
+  @include min-width-xl {
     height: 350px;
-    border: 10px solid var(--background-color);
-
-    @include min-width-md {
-        width: 85%;
-        height: 250px;
-    }
-
-    @include min-width-lg {
-        width: auto;
-        height: 300px;
-        flex-grow: 1;
-    }
-
-    @include min-width-xl {
-        height: 350px;
-    }
+  }
 }
 
 .community__top-image {
-    border-top: none;
-    border-left: none;
+  border-top: none;
+  border-left: none;
 
-    @include min-width-lg {
-        border: 15px solid var(--background-color);
-    }
+  @include min-width-lg {
+    border: 15px solid var(--background-color);
+  }
 }
 
 .community__bottom-image {
-    margin-left: auto;
-    margin-bottom: 60px;
-    border-bottom: none;
-    border-right: none;
+  margin-left: auto;
+  margin-bottom: 60px;
+  border-bottom: none;
+  border-right: none;
 
-    @include min-width-lg {
-        margin-bottom: 0;
-        border: 15px solid var(--background-color);
-    }
+  @include min-width-lg {
+    margin-bottom: 0;
+    border: 15px solid var(--background-color);
+  }
 }
 
 .community__bottom-container {
-    margin-top: -150px;
+  margin-top: -150px;
 
-    @include min-width-md {
-        margin-top: -100px;
-    }
+  @include min-width-md {
+    margin-top: -100px;
+  }
 
-    @include min-width-lg {
-        display: flex;
-    }
+  @include min-width-lg {
+    display: flex;
+  }
 
-    @include min-width-xl {
-        margin-top: -90px;
-    }
+  @include min-width-xl {
+    margin-top: -90px;
+  }
 }
 
 .community__info {
-    @include min-width-lg {
-        padding: 60px;
-        padding-top: 115px;
-        margin: auto;
-    }
+  @include min-width-lg {
+    padding: 60px;
+    padding-top: 115px;
+    margin: auto;
+  }
 
-    @include min-width-md {
-        max-width: 80%;
-    }
+  @include min-width-md {
+    max-width: 80%;
+  }
 
-    @include min-width-lg {
-        max-width: 420px;
-        padding-left: 30px;
-        padding-right: 30px;
-    }
+  @include min-width-lg {
+    max-width: 420px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 
-    @include min-width-xl {
-        max-width: 610px;
-        padding-top: 130px;
-        padding-left: 60px;
-        padding-right: 60px;
-    }
+  @include min-width-xl {
+    max-width: 610px;
+    padding-top: 130px;
+    padding-left: 60px;
+    padding-right: 60px;
+  }
 }
 
 .community__title-for-small {
-    max-width: 300px;
-    margin-bottom: 25px;
+  max-width: 300px;
+  margin-bottom: 25px;
 
-    @include min-width-md {
-        max-width: 400px;
-    }
+  @include min-width-md {
+    max-width: 400px;
+  }
 
-    @include min-width-lg {
-        display: none;
-    }
+  @include min-width-lg {
+    display: none;
+  }
 }
 
 .community__description {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 
-    @include min-width-xl {
-        margin-bottom: 30px;
-    }
+  @include min-width-xl {
+    margin-bottom: 30px;
+  }
 }

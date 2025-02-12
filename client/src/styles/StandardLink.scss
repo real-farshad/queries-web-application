@@ -1,19 +1,19 @@
-@import "breakpoints";
+@use "breakpoints" as *;
 
 .standard-link {
-    font-weight: var(--medium-font-weight);
-    color: var(--primary-accent-color);
+  font-weight: var(--medium-font-weight);
+  color: var(--primary-accent-color);
 }
 
 .standard-link__line {
-    display: inline-block;
-    width: 60px;
-    height: 1.4px;
-    background-color: var(--primary-accent-color);
-    vertical-align: middle;
-    margin-left: 15px;
+  display: inline-block;
+  width: 60px;
+  height: 1.4px;
+  background-color: var(--primary-accent-color);
+  vertical-align: middle;
+  margin-left: 15px;
 }
 
 .standard-link--text-only .standard-link__line {
-    display: none;
+  display: none;
 }

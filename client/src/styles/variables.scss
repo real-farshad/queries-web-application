@@ -1,39 +1,39 @@
-@import "breakpoints";
+@use "breakpoints" as *;
 
 :root {
-    /* Font sizes */
-    --standard-font-size: 16px;
-    --standard-title-font-size: 28px;
+  /* Font sizes */
+  --standard-font-size: 16px;
+  --standard-title-font-size: 28px;
 
-    /* Font weights */
-    --regular-font-weight: 400;
-    --medium-font-weight: 500;
-    --bold-font-weight: 700;
-    --black-font-weight: 900;
+  /* Font weights */
+  --regular-font-weight: 400;
+  --medium-font-weight: 500;
+  --bold-font-weight: 700;
+  --black-font-weight: 900;
 
-    /* Colors */
-    --black: rgb(0, 0, 0);
-    --white: rgb(255, 255, 255);
-    --dark-grey: rgb(25, 25, 25);
-    --background-color: rgb(242, 242, 242);
-    --primary-accent-color: rgb(0, 104, 135);
+  /* Colors */
+  --black: rgb(0, 0, 0);
+  --white: rgb(255, 255, 255);
+  --dark-grey: rgb(25, 25, 25);
+  --background-color: rgb(242, 242, 242);
+  --primary-accent-color: rgb(0, 104, 135);
 
-    /* Text color */
-    --primary-text-color: var(--dark-grey);
+  /* Text color */
+  --primary-text-color: var(--dark-grey);
 
-    /* Widths */
-    --max-content-width-xl: 1366px;
+  /* Widths */
+  --max-content-width-xl: 1366px;
 
-    /* Paddings */
-    --content-space: 24px;
+  /* Paddings */
+  --content-space: 24px;
 
-    @include min-width-md {
-        --content-space: 45px;
-    }
+  @include min-width-md {
+    --content-space: 45px;
+  }
 
-    @include min-width-xl {
-        --standard-title-font-size: 36px;
+  @include min-width-xl {
+    --standard-title-font-size: 36px;
 
-        --content-space: 100px;
-    }
+    --content-space: 100px;
+  }
 }

@@ -1,29 +1,29 @@
-@import "breakpoints";
+@use "breakpoints" as *;
 
 .user-button {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 .user-button__text {
-    font-weight: var(--medium-font-weight);
-    margin-right: 15px;
+  font-weight: var(--medium-font-weight);
+  margin-right: 15px;
 
-    @include min-width-xl {
-        margin-right: 17px;
-    }
+  @include min-width-xl {
+    margin-right: 17px;
+  }
 }
 
 .user-button__avatar {
-    --avatar-size: 42px;
+  --avatar-size: 42px;
 
-    width: var(--avatar-size);
-    height: var(--avatar-size);
-    border: 2px solid var(--white);
-    border-radius: 100%;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border: 2px solid var(--white);
+  border-radius: 100%;
 
-    @include min-width-xl {
-        --avatar-size: 50px;
-    }
+  @include min-width-xl {
+    --avatar-size: 50px;
+  }
 }
