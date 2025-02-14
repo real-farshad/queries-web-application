@@ -1,34 +1,32 @@
 {
   "name": "full-stack-query-application",
   "version": "1.0.0",
-  "description": "",
+  "description": "Full-stack, queries, web application.",
   "main": "index.js",
   "scripts": {
-    "server-dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "client-dev": "cd client && npm run start",
-    "populate-dev": "ts-node ./src/populate/script.ts",
-    "dev": "concurrently \"npm run server-dev\" \"npm run client-dev\"",
-    "server-build": "tsc",
-    "client-build": "cd client && npm install && npm run build",
-    "populate-prod": "node ./dist/populate/script.js",
-    "build": "npm run server-build && npm run client-build && npm run populate-prod",
-    "start": "node ./dist/server.js"
+    "install-all": "npm install && cd client && npm install && cd ..",
+    "populate-database": "node ./dist/populate/script.js",
+    "build-server": "tsc && npm run populate-database",
+    "build-client": "cd client && npm run build",
+    "build": "npm run build-server && npm run build-client",
+    "dev-server": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "dev-client": "cd client && npm run start",
+    "dev": "start npm run dev-server && start npm run dev-client",
+    "start": "set NODE_ENV=production && node ./dist/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^9.1.2",
-    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "joi": "^17.13.3",
     "mongodb": "^6.13.0"
   },
   "devDependencies": {
-    "@types/dotenv": "^6.1.1",
     "@types/express": "^5.0.0",
     "@types/joi": "^17.2.2",
     "@types/node": "^22.13.1",
+    "dotenv": "^16.4.7",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.7.3"
