@@ -6,9 +6,7 @@
   "scripts": {
     "install-all": "npm install && cd client && npm install && cd ..",
     "populate-database": "node ./dist/populate/script.js",
-    "build-server": "tsc && npm run populate-database",
-    "build-client": "cd client && npm run build",
-    "build": "npm run build-server && npm run build-client",
+    "build": "tsc && cd client && npm run build",
     "dev-server": "ts-node-dev --respawn --transpile-only src/server.ts",
     "dev-client": "cd client && npm run start",
     "dev": "start npm run dev-server && start npm run dev-client",
