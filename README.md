@@ -13,3 +13,11 @@ Back-end is an express app divided in different essential parts like controllers
 Controllers process the incoming requests. Schemas are responsible for validating request's body. Services makes an api with responsibility of performing different operations on the database. The CROD operations are implemented for both favorite and post documents.
 
 The application was deployed on heroku from a github repo.
+
+## Screenshots
+
+![Feature 1 Demo](public/screenshots/1.jpg)
+
+![Feature 1 Demo](public/screenshots/2.jpg)
+
+![Feature 1 Demo](public/screenshots/3.jpg)
