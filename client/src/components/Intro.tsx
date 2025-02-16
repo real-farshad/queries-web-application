@@ -113,7 +113,7 @@ function Intro() {
           {favorites.length > 0 &&
             favorites.map((data: any, index: number) => {
               return (
-                <a href="/#" className="intro__favorite-card" key={data._id}>
+                <a href="#!" className="intro__favorite-card" key={data._id}>
                   <FavoriteCard data={data} count={index + 1} />
                 </a>
               );
