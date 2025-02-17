@@ -1,18 +1,62 @@
-# Full-Stack Query Web Application
+# Advanced Query Web Application
 
-Live demo: [full-stack-query-application.herokuapp.com](https://full-stack-query-application.herokuapp.com/)<br>
-Tech stack for front-end: typescript, react, redux, sass<br>
-Tech stack for back-end: typescript, node.js, express, joi, mongodb nodejs driver
+A full-stack data query web application demonstrating complex search implementations. Features flexible filtering and fuzzy search capabilities.
 
-Front-end is a responsive mobile first react and redux application. Utilizing redux toolkit and including custom animations and a nav menu for smaller screens.
+## Key Features
 
-This is a single page application with different sections. The header is a slider for showcasing favorite posts. Posts section includes popular posts as cards. This section has controls for showing new or popular posts, next and prev buttons for pagination and a search field that searches through post titles.
+- Advanced query builder interface
+- Fuzzy search implementation
+- Multi-criteria filtering
+- Type-safe API endpoints
+- Client-side state management with Redux
+- Input validation with Joi schema
+- MongoDB aggregation pipelines
 
-Back-end is an express app divided in different essential parts like controllers, middlewares, services and schemas.
+## Tech Stack
 
-Controllers process the incoming requests. Schemas are responsible for validating request's body. Services makes an api with responsibility of performing different operations on the database. The CROD operations are implemented for both favorite and post documents.
+**Frontend:**
 
-The application was deployed on heroku from a github repo.
+- React + TypeScript
+- Redux Toolkit (state management)
+- Sass styling
+
+**Backend:**
+
+- Express.js + TypeScript
+- MongoDB native driver
+- Joi validation
+- TypeScript compilation
+
+**Database:**
+
+- MongoDB
+
+## Setup
+
+1. Clone repository
+2. Install dependencies: `npm run install-all`
+3. Use `.env.example` to configure `.env` with MongoDB URI
+4. Populate database: `npm run populate-database`
+5. Start development: `npm run dev`
+
+## Development
+
+- `npm run dev`: Concurrent server/client (TypeScript watch mode)
+- `npm run build`: Full production build (compiles both TS and React)
+- `npm start`: Production server start
+
+Access endpoints:
+
+- API: http://localhost:5000
+- Client: http://localhost:3000
+
+## Technical Highlights
+
+- Type-safe full-stack implementation
+- Redux-powered state management
+- MongoDB query optimization
+- Schema validation middleware
+- Responsive query builder UI
 
 ## Screenshots
 
