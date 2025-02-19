@@ -8,10 +8,11 @@
 - Multi-criteria filtering
 - Type-safe API endpoints
 - Custom slider in frontend
+- Responsive mobile friendly design
 - Client-side state management with Redux Toolkit
 - Input validation with Joi schema
 - Unit and intergration tests in frontend
-- CRUD operations for in the backend
+- CRUD operations in the backend
 
 ## Tech Stack
 
@@ -49,6 +50,13 @@
 - `npm run dev`: Concurrent server/client (TypeScript watch mode)
 - `npm run build`: Full production build (compiles both TS and React)
 - `npm start`: Production server start
+
+## Deployment
+
+The CI/CD pipeline is configured through GitHub Actions (`.github/workflows/main.yml`), implementing:
+
+- Automated testing on push
+- Build verification
 
 Access endpoints:
 
