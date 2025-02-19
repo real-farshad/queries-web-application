@@ -1,16 +1,17 @@
-# Advanced Query Web Application
+# Advanced Queries Web Application
 
-A full-stack data query web application demonstrating complex search implementations. Features flexible filtering and fuzzy search capabilities.
+[Live Demo](https://full-stack-blog-app-giii.onrender.com) • It's named queries web applcation because the main feature in this application is that users can search and filter posts. This is full-stack MERN web Application. Frontend is a single page react web application and it fetches and displays the data in a responsive UI.
 
 ## Key Features
 
-- Advanced query builder interface
 - Fuzzy search implementation
 - Multi-criteria filtering
 - Type-safe API endpoints
-- Client-side state management with Redux
+- Custom slider in frontend
+- Client-side state management with Redux Toolkit
 - Input validation with Joi schema
-- MongoDB aggregation pipelines
+- Unit and intergration tests in frontend
+- CRUD operations for in the backend
 
 ## Tech Stack
 
@@ -31,6 +32,10 @@ A full-stack data query web application demonstrating complex search implementat
 
 - MongoDB
 
+**DevOps:**
+
+- GitHub Actions (CI/CD)
+
 ## Setup
 
 1. Clone repository
@@ -49,14 +54,6 @@ Access endpoints:
 
 - API: http://localhost:5000
 - Client: http://localhost:3000
-
-## Technical Highlights
-
-- Type-safe full-stack implementation
-- Redux-powered state management
-- MongoDB query optimization
-- Schema validation middleware
-- Responsive query builder UI
 
 ## Screenshots
 
