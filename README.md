@@ -1,6 +1,6 @@
 # Advanced Queries Web Application
 
-[Live Demo](https://full-stack-blog-app-giii.onrender.com) • It's named queries web applcation because the main feature in this application is that users can search and filter posts. This is full-stack MERN web Application. Frontend is a single page react web application and it fetches and displays the data in a responsive UI.
+[Live Demo](https://full-stack-query-application.onrender.com) • It's named queries web applcation because the main feature in this application is that users can search and filter posts. This is full-stack MERN web Application. Frontend is a single page react web application and it fetches and displays the data in a responsive UI.
 
 ## Key Features
 
