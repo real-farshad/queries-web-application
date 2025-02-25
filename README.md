@@ -1,18 +1,22 @@
 # Advanced Queries Web Application
 
-[Live Demo](https://full-stack-query-application.onrender.com) • It's named queries web applcation because the main feature in this application is that users can search and filter posts. This is full-stack MERN web Application. Frontend is a single page react web application and it fetches and displays the data in a responsive UI.
+[Live Demo](https://queries-web-application.onrender.com) • A single page web application and a personal project I designed And Developed. My focus here was to implement the design while following clean code principles, in styling, writing components and developing the backend. The main feature I worked on in here is the ability for users to search through posts and filter the results. I also enforced type safety in full-stack and did extensive testing in the frontend.
 
 ## Key Features
 
 - Fuzzy search implementation
 - Multi-criteria filtering
+- Client-side state management with Redux Toolkit
+- Custom interactive slider component with touch gesture support
+- Unit and integration tests in the frontend using Jest and React Testing Library
 - Type-safe API endpoints
 - Custom slider in frontend
+- Semantic HTML and SEO optimization
+- RESTful APIs for full CRUD operations in the backend
+- Custom React hooks
+- Mobile-first implementation with Sass and BEM methodology
 - Responsive mobile friendly design
-- Client-side state management with Redux Toolkit
-- Input validation with Joi schema
-- Unit and intergration tests in frontend
-- CRUD operations in the backend
+- Input validation with Joi schema in the backend
 
 ## Tech Stack
 
