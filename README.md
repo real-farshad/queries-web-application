@@ -2,7 +2,7 @@
 
 Live demo: [queries-web-application.vercel.app](https://queries-web-application.vercel.app)
 
-A single page web application and a personal project I designed And Developed. My focus here was to implement the design while following clean code principles, in styling, writing components and developing the backend. The main feature I worked on in here is the ability for users to search through posts and filter the results. I also enforced type safety in full-stack and did extensive testing in the frontend.
+A single page web application and a personal project I designed And Developed. My focus here was to implement the design while following clean code principles, in styling, writing components and developing the backend. The main feature I worked on here is the ability for users to search through posts and filter the results. I also enforced type safety in full-stack and did extensive testing in the frontend.
 
 ## Key Features
 
